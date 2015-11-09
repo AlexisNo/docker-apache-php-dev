@@ -49,19 +49,19 @@ Usage in child Dockerfile:
 
 VirtualHost configuration:
 
-  <VirtualHost *:443>
-      SSLEngine on
-      SSLCertificateFile /etc/ssl/certs/<domain>.crt
-      SSLCertificateKeyFile /etc/ssl/private/<domain>.key
-      # SSL Protocol Adjustments:
-      BrowserMatch "MSIE [2-6]" \
-                    nokeepalive ssl-unclean-shutdown \
-                    downgrade-1.0 force-response-1.0
-      # MSIE 7 and newer should be able to use keepalive
-      BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+    <VirtualHost *:443>
+        SSLEngine on
+        SSLCertificateFile /etc/ssl/certs/<domain>.crt
+        SSLCertificateKeyFile /etc/ssl/private/<domain>.key
+        # SSL Protocol Adjustments:
+        BrowserMatch "MSIE [2-6]" \
+                      nokeepalive ssl-unclean-shutdown \
+                      downgrade-1.0 force-response-1.0
+        # MSIE 7 and newer should be able to use keepalive
+        BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
 
-      # Complete with your configuration
-      ...
-  </VirtualHost>
+        # Complete with your configuration
+        # ...
+    </VirtualHost>
 
 Replace `<domain>` with the hostname you use for the development environment.
